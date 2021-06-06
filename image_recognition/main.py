@@ -12,8 +12,8 @@ def main():
     img_l = img.convert("L")
     img_s = img.convert("1")
     img.show()
-    img_s.show()
     img_l.show()
+    img_s.show()
     # przetwarzanie zdjecia
     processing = image.img_to_array(img)
     processing = np.expand_dims(processing, axis=0)

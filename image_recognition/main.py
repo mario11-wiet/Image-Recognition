@@ -3,6 +3,7 @@ import numpy as np
 import constants as c
 from keras.models import load_model
 from keras.preprocessing import image
+
 model = load_model('save_model/myModel.h5')
 
 
@@ -17,6 +18,7 @@ def main():
     # przetwarzanie zdjecia
     processing = image.img_to_array(img)
     processing = np.expand_dims(processing, axis=0)
+    processing = processing / 255.0
     category = model.predict(processing)
     category = list(enumerate(category[0]))
     category = sorted(category, key=lambda x: x[1], reverse=True)
